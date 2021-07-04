@@ -1,17 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { useEffect, useState } from 'react';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+export function useDelayFunction(): Function {
+  const [timerID, setTimerID] = useState<ReturnType<typeof setTimeout> | null>(null);
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+  useEffect(() => () => clearTimeout(timerID!), [timerID]);
+
+  return (callback: Function, miliseconds: number, ...args: any[]): void => {
+    const timer = setTimeout(() => callback(...args), miliseconds);
+
+    setTimerID(timer);
+  };
+}

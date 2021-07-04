@@ -1,8 +1,35 @@
 {
   "name": "delay-function-hook",
   "version": "0.1.0",
-  "private": true,
-  "dependencies": {
+  "description": "React hook component make delay your function.",
+  "private": false,
+  "main": "index.js",
+  "types": "index.d.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PotapenkoVadim/delay-function-hook"
+  },
+  "bugs": {
+    "url": "https://github.com/PotapenkoVadim/delay-function-hook/issues"
+  },
+  "keywords": [
+    "react-hook",
+    "delay",
+    "setTimeout"
+  ],
+  "author": {
+    "name": "Potapenko Vadim"
+  },
+  "license": "CC0-1.0",
+  "files": [
+    "lib"
+  ],
+  "dependencies": {},
+  "peerDependencies": {
+    "react": ">=17.0.2",
+    "react-dom": ">=17.0.2"
+  },
+  "devDependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
@@ -18,7 +45,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "tsc",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
