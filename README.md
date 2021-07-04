@@ -50,4 +50,4 @@ export default function App() {
 ## Params
   * **`callback`: Function *(required)*;**
   * **`delay`: number *(required)*;**
-  * **`yourArguments`: any[] *(required)*;**
+  * yourArguments?: any[];
