@@ -5,9 +5,19 @@ export function useDelayFunction(): Function {
 
   useEffect(() => () => clearTimeout(timerID!), [timerID]);
 
-  return (callback: Function, miliseconds: number, ...args: any[]): void => {
-    const timer = setTimeout(() => callback(...args), miliseconds);
+  return (callback: Function, milliseconds: number, ...args: any[]): Promise<any> => {
+    return new Promise((resolve, reject) => {
+      const timer = setTimeout(() => {
+        try {
+          const result = callback(...args);
 
-    setTimerID(timer);
+          resolve(result);
+        } catch (error) {
+          reject(error);
+        }
+      }, milliseconds);
+
+      setTimerID(timer);
+    });
   };
 }
